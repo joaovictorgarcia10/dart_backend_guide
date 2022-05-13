@@ -6,7 +6,6 @@ class ServerHandlerExample {
   Handler get handler {
     final _router = Router();
 
-    ///////////////////////// GET ///////////////////////////
     // http://localhost:8090/
     _router.get("/", (Request req) {
       return Response.ok(
@@ -22,7 +21,7 @@ class ServerHandlerExample {
       return Response(200, body: "Hello World $usuario!");
     });
 
-    // http://localhost:8090/query?nome=Joao&idade=21&profissao=Developer
+    //Query Params ->  http://localhost:8090/query?nome=Joao&idade=21&profissao=Developer
     _router.get("/query", (Request request) {
       String? nome = request.url.queryParameters["nome"];
       String? idade = request.url.queryParameters["idade"];
@@ -38,7 +37,6 @@ class ServerHandlerExample {
       );
     });
 
-    ///////////////////////// POST ///////////////////////////
     // http://localhost:8090/login
     _router.post("/login", (Request req) async {
       var result = await req.readAsString();
