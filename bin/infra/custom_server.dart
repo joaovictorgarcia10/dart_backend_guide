@@ -8,6 +8,7 @@ class CustomServer {
     required int port,
   }) async {
     await shelf_io.serve(handler, address, port); //  Inicia o nosso servidor
+    print(DateTime.now());
     print("Servidor Inicializado -> http://$address:$port");
   }
 }
