@@ -1,12 +1,10 @@
-import 'dart:convert';
-
 class NoticiaModel {
   final int? id;
   final String titulo;
   final String descricao;
   final String imagem;
   final String dataPublicacao;
-  final DateTime? dataAtualizacao;
+  final String dataAtualizacao;
 
   NoticiaModel(
     this.id,
@@ -24,14 +22,12 @@ class NoticiaModel {
 
   factory NoticiaModel.fromJson(Map<String, dynamic> map) {
     return NoticiaModel(
-      map['id'] ?? "",
+      map['id'] ?? 0,
       map['titulo'] ?? "",
       map['descricao'] ?? "",
       map['imagem'] ?? "",
       map['dataPublicacao'] ?? "",
-      map['dataAtualizacao'] != null
-          ? DateTime.fromMillisecondsSinceEpoch(map['dataAtualizacao'])
-          : null,
+      map['dataAtualizacao'] ?? "",
     );
   }
 
@@ -41,7 +37,7 @@ class NoticiaModel {
     String? descricao,
     String? imagem,
     String? dataPublicacao,
-    DateTime? dataAtualizacao,
+    String? dataAtualizacao,
   }) {
     return NoticiaModel(
       id ?? this.id,

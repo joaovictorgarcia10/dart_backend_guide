@@ -9,7 +9,7 @@ class BlogApi {
   final GenericService<NoticiaModel> _service;
   BlogApi(this._service);
 
-  // Base URL -> http://localhost:5555/blog/noticias
+  // Base URL -> http://localhost:5556/blog/noticias
   Handler get handler {
     Router router = Router();
 
@@ -20,7 +20,6 @@ class BlogApi {
 
       return Response.ok(
         jsonEncode(noticiasMap),
-        headers: {"content-type": "application/json"},
       );
     });
 
@@ -33,14 +32,14 @@ class BlogApi {
       return Response(201);
     });
 
-    // Atualizar Notícia ->  http://localhost:5555/blog/noticias?id=1
+    // Atualizar Notícia ->  http://localhost:5556/blog/noticias?id=1
     router.put("/blog/noticias", (Request req) {
       // _service.save("");
       //String? id = req.url.queryParameters["id"];
       return Response.ok("Choveu Hoje");
     });
 
-    // Deletar Notícia ->  http://localhost:5555/blog/noticias?id=1
+    // Deletar Notícia ->  http://localhost:5556/blog/noticias?id=1
     router.delete("/blog/noticias", (Request req) {
       // _service.delete(1);
       //String? id = req.url.queryParameters["id"];
